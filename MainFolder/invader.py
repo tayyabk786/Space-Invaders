@@ -13,7 +13,7 @@ MENU_FONT = pygame.font.SysFont("comicsansms", 75)
 MENU_TITLE_FONT = pygame.font.SysFont("comicsansms", 50)
 MENU_NAME_FONT = pygame.font.SysFont("comicsansms", 40)
 GREEN = (7, 189, 32)
-BACKGROUND = pygame.image.load('menupic.jpg')
+BACKGROUND = pygame.image.load('MainFolder/images/backg.png')
 GRAY = (169, 169, 169)
 
 # Create the Pygame window
@@ -25,7 +25,7 @@ menu_options = ["Start Game", "Settings", "Exit"]
 selected_option = None
 
 # Load and play the soundtrack
-pygame.mixer.music.load('music.mp3')  # Replace with your soundtrack file
+pygame.mixer.music.load('MainFolder/sounds/music.mp3')  # Replace with your soundtrack file
 pygame.mixer.music.set_volume(0.5)  # Set the initial volume
 pygame.mixer.music.play(-1)  # Loop indefinitely
 
