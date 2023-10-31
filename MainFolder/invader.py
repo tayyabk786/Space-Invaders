@@ -33,7 +33,7 @@ pygame.mixer.music.play(-1)  # Loop indefinitely
 volume_step = 0.1
 
 def draw_menu():
-    screen.fill(BACKGROUND)
+    screen.blit(BACKGROUND, (0,0))
     title_text = MENU_TITLE_FONT.render("ALIEN INVADERS", True, GREEN)
     title_name = MENU_NAME_FONT.render("By Hamza & Tayyab", True, GREEN)
      
@@ -92,7 +92,7 @@ def settings_menu():
                 elif event.key == pygame.K_ESCAPE:
                     running = False
 
-        screen.fill(BACKGROUND)
+        screen.blit(BACKGROUND, (0,0))
         title_text = MENU_TITLE_FONT.render("Settings", True, GREEN)
         volume_text = MENU_FONT.render(f"Volume: {int(pygame.mixer.music.get_volume() * 100)}%", True, GREEN)
         
