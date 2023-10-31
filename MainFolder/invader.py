@@ -7,7 +7,7 @@ pygame.init()
 # Initialize Pygame mixer
 pygame.mixer.init()
 
-# Constants
+# Variables
 WIDTH, HEIGHT = 800, 600
 MENU_FONT = pygame.font.SysFont("comicsansms", 75)
 MENU_TITLE_FONT = pygame.font.SysFont("comicsansms", 50)
@@ -16,7 +16,7 @@ GREEN = (7, 189, 32)
 BACKGROUND = pygame.image.load('MainFolder/images/backg.png')
 GRAY = (169, 169, 169)
 
-# Create the Pygame window
+# Create the Pygame window, and name the app at top
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Pygame Main Menu")
 
@@ -29,9 +29,10 @@ pygame.mixer.music.load('MainFolder/sounds/music.mp3')  # Replace with your soun
 pygame.mixer.music.set_volume(0.5)  # Set the initial volume
 pygame.mixer.music.play(-1)  # Loop indefinitely
 
-# Volume control step (adjust as needed)
+# Volume control
 volume_step = 0.1
 
+# The menu titles
 def draw_menu():
     screen.blit(BACKGROUND, (0,0))
     title_text = MENU_TITLE_FONT.render("ALIEN INVADERS", True, GREEN)
@@ -45,6 +46,7 @@ def draw_menu():
         text_rect = text.get_rect(center=(WIDTH // 2, 250 + i * 100))
         screen.blit(text, text_rect)
 
+# Defining main menu and all the buttons
 def main_menu():
     global selected_option
     running = True
@@ -53,7 +55,7 @@ def main_menu():
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
-                sys.exit()
+                sys.exit() # pygame app will exit if press exit
             if event.type == pygame.MOUSEMOTION:
                 mouse_x, mouse_y = event.pos
                 for i, option in enumerate(menu_options):
@@ -65,7 +67,7 @@ def main_menu():
                     selected_option = None
             if event.type == pygame.MOUSEBUTTONDOWN and selected_option is not None:
                 if selected_option == 0:
-                    # Start the game (replace with your game code)
+                    # Start the game (replace with game code)
                     print("Starting the game")
                 elif selected_option == 1:
                     # Open settings
@@ -76,6 +78,7 @@ def main_menu():
         draw_menu()
         pygame.display.flip()
 
+# When you press settings button
 def settings_menu():
     global volume
     running = True
@@ -86,19 +89,21 @@ def settings_menu():
                 sys.exit()
             if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_UP:
-                    pygame.mixer.music.set_volume(min(1.0, pygame.mixer.music.get_volume() + volume_step))
+                    pygame.mixer.music.set_volume(min(1.0, pygame.mixer.music.get_volume() + volume_step)) # if you press up key turns volume up
                 elif event.key == pygame.K_DOWN:
-                    pygame.mixer.music.set_volume(max(0.0, pygame.mixer.music.get_volume() - volume_step))
-                elif event.key == pygame.K_ESCAPE:
-                    running = False
+                    pygame.mixer.music.set_volume(max(0.0, pygame.mixer.music.get_volume() - volume_step)) # if you press down key it turns volume down
+                elif event.key == pygame.K_ESCAPE: # When you press escape button it goes back to menu
+                    running = False 
 
-        screen.blit(BACKGROUND, (0,0))
+        screen.blit(BACKGROUND, (0,0)) #background will stay the same - picture
         title_text = MENU_TITLE_FONT.render("Settings", True, GREEN)
         volume_text = MENU_FONT.render(f"Volume: {int(pygame.mixer.music.get_volume() * 100)}%", True, GREEN)
         
+        #places the text in middle of screen
         screen.blit(title_text, (WIDTH // 2 - title_text.get_width() // 2, 100))
         screen.blit(volume_text, (WIDTH // 2 - volume_text.get_width() // 2, 250))
         
+        #update whole screen
         pygame.display.flip()
 
 if __name__ == "__main__":
