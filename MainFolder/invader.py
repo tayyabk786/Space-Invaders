@@ -18,7 +18,7 @@ GRAY = (169, 169, 169)
 
 # Create the Pygame window, and name the app at top
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Pygame Main Menu")
+pygame.display.set_caption("Alien Invaders")
 
 # Define the main menu options
 menu_options = ["Start Game", "Settings", "Exit"]

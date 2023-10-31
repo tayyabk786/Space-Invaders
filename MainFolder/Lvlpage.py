@@ -15,3 +15,12 @@ MENU_NAME_FONT = pygame.font.SysFont("comicsansms", 40)
 GREEN = (7, 189, 32)
 BACKGROUND = pygame.image.load('MainFolder/images/backg.png')
 GRAY = (169, 169, 169)
+
+
+# Create the Pygame window, and name the app at top
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption("Pygame Main Menu")
+
+# Define the main menu options
+menu_options = ["Start Game", "Settings", "Exit"]
+selected_option = None
