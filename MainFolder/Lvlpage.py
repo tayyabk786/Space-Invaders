@@ -22,19 +22,19 @@ menu_options = ["CLICK FOR LEVEL 2", "Exit"]
 selected_option = None
 
 # The menu titles
-def draw_menu():
-    screen.blit(BACKGROUND, (0,0))
-    congrat_text = MENU_CONGRAT_FONT.render("CONGRATULATIONS! LEVEL 1 COMPLETE", True, GREEN)
+def main_menu(): 
+screen.blit(BACKGROUND, (0,0))
+congrat_text = MENU_CONGRAT_FONT.render("CONGRATULATIONS! LEVEL 1 COMPLETE", True, GREEN)
      
-    screen.blit(congrat_text, (WIDTH // 15 - congrat_text.get_width() // 100, 17))
+screen.blit(congrat_text, (WIDTH // 15 - congrat_text.get_width() // 100, 17))
 
-    for i, option in enumerate(menu_options):
+for i, option in enumerate(menu_options):
         text = OPTIONS_FONT.render(option, True, GREEN if selected_option == i else GRAY)
         text_rect = text.get_rect(center=(WIDTH // 2, 250 + i * 100))
         screen.blit(text, text_rect)
 
 # Defining main menu and all the buttons
-def main_menu():
+def opt_menu():
     global selected_option
     running = True
 
@@ -58,7 +58,7 @@ def main_menu():
                 elif selected_option == 1:
                     pygame.quit()
 
-        draw_menu()
+        main_menu()
         pygame.display.flip()
 
         
