@@ -8,22 +8,20 @@ pygame.init()
 WIDTH, HEIGHT = 800, 600
 BUTTON_COLOR = (0, 0, 0)
 BUTTON_TEXT_COLOR = (7, 189,32 )
+GAME_OVER_COLOR = (255,0,0)
 BUTTON_FONT = pygame.font.Font(None, 70)
 
+#Background
 
 
 # Create the game window
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("GAME OVER")
 
-#Background
-background = pygame.image.load('MainFolder/images/image.png')
-
-
 # Custom button class
 class Button:
-    def __init__(self, x, y, width, height, text, action):
-        self.rect = pygame.Rect(x, y, width, height)
+    def __init__(self, y, x, width, height, text, action):
+        self.rect = pygame.Rect(y, x, width, height)
         self.text = text
         self.action = action
         self.clicked = False
@@ -33,7 +31,8 @@ class Button:
         text_surface = BUTTON_FONT.render(self.text, True, BUTTON_TEXT_COLOR)
         text_rect = text_surface.get_rect(center=self.rect.center)
         screen.blit(text_surface, text_rect)
-
+    
+   
 # Create buttons
 button1 = Button(300, 250, 200, 50, "RESTART GAME", "restart_game")
 button2 = Button(300, 400, 200, 50, "Quit", "quit")
