@@ -16,7 +16,7 @@ game_state = "start_menu"
 
 #background
 
-background = pygame.image.load('images/image.png')
+background = pygame.image.load('MainFolder/images/image.png')
 
 def draw_start_menu():
    #screen.fill((52, 78, 91))
